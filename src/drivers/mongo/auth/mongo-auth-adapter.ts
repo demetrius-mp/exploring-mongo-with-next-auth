@@ -1,5 +1,5 @@
-import { defineAuthAdapterConfig } from "@/adapters/common/auth/auth-adapter-config";
-import client from "@/adapters/mongo/storage/client";
+import { defineAuthAdapterConfig } from "@/drivers/interfaces/auth/auth-adapter-config";
+import client from "@/drivers/mongo/storage/client";
 import {
   MongoDBAdapter as BaseMongoDBAdapter,
   format,
@@ -58,6 +58,8 @@ const MongoDBAdapter: typeof BaseMongoDBAdapter = (client, options) => {
   return adapter;
 };
 
-export default defineAuthAdapterConfig({
+const authAdapterConfig = defineAuthAdapterConfig({
   adapter: MongoDBAdapter(client),
 });
+
+export default authAdapterConfig;

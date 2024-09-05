@@ -1,5 +1,5 @@
-import { AuthAdapterConfig } from "@/adapters/common/auth/auth-adapter-config";
 import { authConfig } from "@/config/auth-config";
+import { AuthAdapterConfig } from "@/drivers/interfaces/auth/auth-adapter-config";
 import NextAuth, { NextAuthResult } from "next-auth";
 
 function createNextAuth(): NextAuthResult {
@@ -9,7 +9,7 @@ function createNextAuth(): NextAuthResult {
 
   if (authAdapterName === "mongo") {
     authAdapterConfig =
-      require("@/adapters/mongo/auth/mongo-auth-adapter").default;
+      require("@/drivers/mongo/auth/mongo-auth-adapter").default;
   } else {
     throw new Error(`Invalid auth adapter ${authAdapterName}`);
   }

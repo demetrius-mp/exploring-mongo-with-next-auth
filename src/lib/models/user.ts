@@ -2,7 +2,6 @@ import { Entity } from "@/lib/models/entity";
 
 export type UserType = "admin" | "user";
 
-// We only have 2 steps for now
 export interface OnboardingSteps {
   tenantCreated: boolean;
   profileUpdated: boolean;
